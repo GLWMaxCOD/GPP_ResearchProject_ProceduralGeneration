@@ -71,6 +71,34 @@ Now, both generations have their advantages and disadvantages
 ## Detailed explanation of each step
 ### Corridor-first procedural generation
 **1. Create corridors using the random walk algorithm**
+https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/78094655-3ad0-45fc-b8d6-bad81bd3d266
+
+The video above shows us the bare corridors it generates from using the random walk algorithm
+we have 2 parameters here
+* Corridor length (How long is each corridor?)
+* Corridor count (How many corridors do we generate?)
+
+Let's take a closer look at the Random walk algorithm applied on the corridor
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/d35289f2-31d3-4a31-af5f-99fb37512699)
+We have a blank grid, let's paint the starting point of our corridor in red.
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/2dd58064-b4a6-4742-ae78-971b3fb8f070)
+great! we now start from the start point to any of the cardinal directions, the length is defined beforehand as a parameter, let's take corridor length 5 for example
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/9b31318f-9bb2-4591-94d2-27f1e492c7ec)
+It has completed its first corridor count going to the right direction, we repeat this until we have done exactly the amount of corridors we wanted, which is our 2nd parameter, let's take corridor count 5 as well.
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/fa60ce2f-f01f-4b73-8f6f-808602af8d4e)
+After finishing the loop of the inputted amount of corridors, the generated corridor might look like this.
+
+Now, it is important to note that random walk might cause to decide going back in the direction it came from, and thus seemingly make it only have 4 corridors while it just overlapped the same position it went before
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/832a5019-5a03-4190-ba98-d3d9496c5e94)
+
+Aside from that exception, this concludes the random walk algorithm applied on the corridor
+
+**2. generate rooms at random points of the corridor also using the random walk algorithm**
+
 
 # Conclusion and where to go next
 This project has given me the opportunity to research the procedural generation world and I was fascinated by the very broad possibilities and flexibility this area has!
@@ -85,10 +113,10 @@ With this research topic having given me a better fundamental understanding of h
 In conclusion, this 2D Dungeon generator has lots of potential and can be a powerful tool for game designers with further optimization and development
 
 # References
-Random walk algorithm (https://en.wikipedia.org/wiki/Random_walk)
-Binary Space Partitioning (https://en.wikipedia.org/wiki/Binary_space_partitioning)
-Procedural Dungeon Theory (https://youtu.be/jlNqp_QAibo?list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v)
-Procedural generation in Unity (https://youtu.be/PhLcNhK9aro)
-Procedural Dungeon using Random walk (https://blog.jrheard.com/procedural-dungeon-generation-drunkards-walk-in-clojurescript)
+- Random walk algorithm (https://en.wikipedia.org/wiki/Random_walk)
+- Binary Space Partitioning (https://en.wikipedia.org/wiki/Binary_space_partitioning)
+- Procedural Dungeon Theory (https://youtu.be/jlNqp_QAibo?list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v)
+- Procedural generation in Unity (https://youtu.be/PhLcNhK9aro)
+- Procedural Dungeon using Random walk (https://blog.jrheard.com/procedural-dungeon-generation-drunkards-walk-in-clojurescript)
 
 
