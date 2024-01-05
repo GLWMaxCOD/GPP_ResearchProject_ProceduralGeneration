@@ -60,15 +60,35 @@ Now, both generations have their advantages and disadvantages
 **Advantages:**
 - Structured layout
 - Variety in room sizes (if using BSP)
-- Control over layout
+- Control over the layout
 - Logical corridor connections (If using greedy algorithms)
 
 **Disadvantages:**
-- 'potentially' less natural <-- can be resolved with Delauney Triangulation
+- 'potentially' less natural <-- can be resolved with Delaunay Triangulation
 - Complexity
-- 'Possibly' repitive <-- can also be resolved with Delauney Triangulation
+- 'Possibly' repetitive <-- can also be resolved with Delaunay Triangulation
 
 ## Detailed explanation of each step
 ### Corridor-first procedural generation
 **1. Create corridors using the random walk algorithm**
+
+# Conclusion and where to go next
+This project has given me the opportunity to research the procedural generation world and I was fascinated by the very broad possibilities and flexibility this area has!
+With this research topic having given me a better fundamental understanding of how it works, there is still a lot of room for improvements or expansions
+
+- Adding Delaunay triangulation to create corridors (Very recommended)
+- Procedurally generating props/items or enemies in the procedurally generated dungeons
+- 3D procedural generation
+- Optimizing the generations, for example: currently, BSP room generation runs on O(n²) time
+- ...
+
+In conclusion, this 2D Dungeon generator has lots of potential and can be a powerful tool for game designers with further optimization and development
+
+# References
+Random walk algorithm (https://en.wikipedia.org/wiki/Random_walk)
+Binary Space Partitioning (https://en.wikipedia.org/wiki/Binary_space_partitioning)
+Procedural Dungeon Theory (https://youtu.be/jlNqp_QAibo?list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v)
+Procedural generation in Unity (https://youtu.be/PhLcNhK9aro)
+Procedural Dungeon using Random walk (https://blog.jrheard.com/procedural-dungeon-generation-drunkards-walk-in-clojurescript)
+
 
