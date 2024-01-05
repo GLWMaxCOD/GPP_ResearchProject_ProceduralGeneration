@@ -22,4 +22,8 @@ Now, number 3 might be a bit confusing, but essentially i see this project as a 
 
 # Final Result
 
-https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/4e4dac56-be47-4e7a-9161-61273eef984d
+### Corridor-first procedural generation
+https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/5586ea8a-5195-4e30-b12e-6bcc04f0e8c7
+
+### Room-first procedural generation
+https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/a0e94d86-ed67-4880-99ee-4f9e567c9df9
