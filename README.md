@@ -27,3 +27,48 @@ https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/621
 
 ### Room-first procedural generation
 https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/a0e94d86-ed67-4880-99ee-4f9e567c9df9
+
+# How it works
+
+### Corridor-first procedural generation
+1. Create corridors using the random walk algorithm
+2. generate rooms at random points of the corridor also using the random walk algorithm
+3. generate rooms at each dead end of the corridor using the same algorithm
+4. Place the wall tiles to finish the look
+
+### Room-first procedural generation
+1. Generate rooms using Binary Space Partitioning (BSP) or random walk
+2. Take the center-point of each generated room and connect them using Greedy algorithm
+3. Place the wall tiles to finish the look
+
+## Advantages and disadvantages of each generation
+Now, both generations have their advantages and disadvantages
+
+### Corridor-first procedural generation
+**Advantages:**
+- Natural layouts
+- Simplicity
+- (Dead End rooms) if wanted
+- Ease of navigation
+
+**Disadvantages:**
+- Limited room variation
+- Less structured
+- Less control
+
+### Corridor-first procedural generation
+**Advantages:**
+- Structured layout
+- Variety in room sizes (if using BSP)
+- Control over layout
+- Logical corridor connections (If using greedy algorithms)
+
+**Disadvantages:**
+- 'potentially' less natural <-- can be resolved with Delauney Triangulation
+- Complexity
+- 'Possibly' repitive <-- can also be resolved with Delauney Triangulation
+
+## Detailed explanation of each step
+### Corridor-first procedural generation
+**1. Create corridors using the random walk algorithm**
+
