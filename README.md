@@ -158,7 +158,53 @@ And this finishes our corridor-first procedural dungeon generation.
 ## Corridor-first procedural generation
 **1. Generate rooms using Binary Space Partitioning (BSP) or random walk**
 
+https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/81918fa0-e86a-4c11-9603-a9d0aefcce2b
 
+In this generation method, rooms will be generated first, they can either be done with Random walk like before, but I wanted to get square or rectangular rooms as well, after browsing and comparing several 2D dungeon generation methods,
+I found out that many use a technique called BSP (Binary Space Partitioning), let's take a simple rundown of how it works
+
+First, we give it a total dungeon size, this will be the main field we will cut up
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/2403df22-e53c-4f5e-8b5a-99c8d4accb28)
+
+Now with our other parameters, namely the minimum room width and minimum room height, we have set a minimum size of our rooms and an offset, which will decide how much space is divided between the rooms.
+Now BSP will randomly decide points to cut our main dungeon size
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/e00f1f9a-3906-47a1-b8db-2479ae99f9de)
+
+We now have 2 rooms, but we will keep going until we cannot create any more rooms due to our minimum sizes not being achieved with the offset taken into account
+In the image below, we no longer see room 2, because room 2 is now the combination of both rooms 3 and 4. This is a very simplified explanation of how BSP works
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/d1c9c2b3-fd3c-4904-858c-72f911ebb67c)
+
+**2. Take the center point of each generated room and connect them using the Greedy algorithm**
+
+Great, now that we have rooms generated all that's left is to connect them, now I would like to point out that this is the area I want to improve upon since I'm using a very easy algorithm and there are better ones such as the Delaunay Triangulation.
+But I'm still new to creating my own procedural generation, so I decided it's best to stick with simpler concepts first before attempting more complex ones, so I opted for Greedy Algorithms to pave the way for us.
+
+Greedy algorithms are of course greedy! They aim for the goal (destination) in the shortest amount of steps.
+
+Firstly I made each room have its own center point which is our 'potential' destination.
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/2e138cac-fbcb-4c42-bb4c-c312a5bf49b5)
+
+Next up is deciding a random starting point in one of the centers of any room, from there we search for the closest center point of any room to the starting point and use that point as its destination goal. the algorithm will create floor tiles along the way towards that destination.
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/941dcc9c-9295-4022-af5e-591ef109a641)
+
+After reaching the destination, it searches if there are still some more points it needs to reach if there are, it picks the closest to its current position once more and travels to that point.
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/9c500fbd-76c6-46fe-ab01-21d4d9d4fe59)
+
+This process is repeated until there are no more destinations to be reached, in the end, the corridor layout may look like this:
+
+![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/6a73c63c-de06-4547-8551-e7ad0c69e321)
+
+Okay, now you can notice the potential risk of getting "linear" levels, this is why I want to improve upon this area the most, if you want as a game designer to have more random interconnected rooms, having Delaunay triangulation will solve this problem.
+
+**4. Place the wall tiles to finish the look**
+
+This step is the same as the corridor first approach.
 
 # Conclusion and where to go next
 This project has given me the opportunity to research the procedural generation world and I was fascinated by the very broad possibilities and flexibility this area has!
