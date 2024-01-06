@@ -18,7 +18,7 @@ This way, I can learn the fundamental concepts and techniques of the procedural 
 3. Allow the code/algorithm to be open-ended, so I can use it to eventually add more complex algorithm possibilities
 4. Understand how procedural generation works
 
-Now, number 3 might be a bit confusing, but essentially i see this project as a long-term project and want to utilize its potential for my future games or further research, i will discuss this a bit later
+Now, number 3 might be a bit confusing, but essentially I see this project as a long-term project and want to utilize its potential for my future games or further research, i will discuss this a bit later
 
 # Final Result
 
@@ -56,7 +56,7 @@ Now, both generations have their advantages and disadvantages
 - Less structured
 - Less control
 
-### Corridor-first procedural generation
+### Room-first procedural generation
 **Advantages:**
 - Structured layout
 - Variety in room sizes (if using BSP)
@@ -110,14 +110,14 @@ https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/621
 After creating the corridors, there will be a set % chance between 10 and 100% to generate rooms in the endpoints of each corridor made. 
 The rooms are generated using the same algorithm, but they can be generated with different algorithms or variations of the random walk, i will show you 2 different ways of random walk-generated rooms I have implemented
 
-### 1. Random walk Island
+### A. Random walk Island
 With this algorithm, the rooms are more island-shaped and smaller concentrated around the generating point
 Here, we start from the origin of the room in every iteration.
 
 https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/bf929cfe-8986-410c-aaf5-d9a17dc278e1
 
 
-### 2. True random walk
+### B. True random walk
 This algorithm will continue the random walk where it ended its iterations, making the rooms more of a "cavern" feel or spacious rooms.
 
 https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/1a914273-770a-479e-8631-8a4925f6f75f
@@ -132,7 +132,7 @@ We can easily add different instances of room generations, the simple parameters
 **3. generate rooms at each dead end of the corridor using the same algorithm**
 
 You may or may not have noticed that this generation method has a possibility of having dead ends, which can be unwanted. I resolved this by creating rooms at each dead end the same way as generating rooms. But did I detect those dead ends you may ask?
-Well, it's quite simple! I first check each floor tile for its neighbors, and tiles that only have 1 neighboring floor tile is a dead-end tile, if that is the case I add it to the list of dead-ends that need a room generated.
+Well, it's quite simple! I first check each floor tile for its neighbors, and tiles that only have 1 neighbouring floor tile is a dead-end tile, if that is the case I add it to the list of dead-ends that need a room generated.
 
 ![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/105a78e4-527d-4fc4-9818-7cee47d81533)
 
@@ -142,20 +142,20 @@ In code:
 
 **4. Place the wall tiles to finish the look**
 Now this step is a little trickier, but basically, it uses the same logic on how to detect dead ends
-Each tile is being checked on its neighboring tiles on whether they are floortiles or not, and based on the binary combination it has a unique binary set in which we can assign the correct tile texture
+Each tile is being checked on its neighbouring tiles on whether they are floortiles or not, and based on the binary combination it has a unique binary set in which we can assign the correct tile texture
 
 To illustrate:
 
 ![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/bd471c3a-8cb5-4e47-878c-6ec686a10397)
 
-Here we check each wall tile on its neighboring tiles on whether they are floortiles or not in Clockwise order, it returns a Binary set of numbers in which we can find the corresponding wall type it should be (in this case a full wall)
+Here we check each wall tile on its neighbouring tiles on whether they are floortiles or not in Clockwise order, it returns a Binary set of numbers in which we can find the corresponding wall type it should be (in this case a full wall)
 Here's another example
 
 ![image](https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/1a80d4f6-500c-4802-a422-fd4299f43e76)
 
 And this finishes our corridor-first procedural dungeon generation.
 
-## Corridor-first procedural generation
+## Room-first procedural generation
 **1. Generate rooms using Binary Space Partitioning (BSP) or random walk**
 
 https://github.com/GLWMaxCOD/GPP_ResearchProject_ProceduralGeneration/assets/62150523/81918fa0-e86a-4c11-9603-a9d0aefcce2b
@@ -202,7 +202,7 @@ This process is repeated until there are no more destinations to be reached, in 
 
 Okay, now you can notice the potential risk of getting "linear" levels, this is why I want to improve upon this area the most, if you want as a game designer to have more random interconnected rooms, having Delaunay triangulation will solve this problem.
 
-**4. Place the wall tiles to finish the look**
+**3. Place the wall tiles to finish the look**
 
 This step is the same as the corridor first approach.
 
